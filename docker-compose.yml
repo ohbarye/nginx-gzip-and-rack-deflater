@@ -7,3 +7,13 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./data:/data/www
+
+  api:
+    image: ruby:2.7.0
+    ports:
+      - "9292:9292"
+    working_dir: /api
+    volumes:
+      - ./api:/api
+      - ./api/vendor/bundle:/usr/local/bundle
+    command: bundle exec rackup -o 0.0.0.0
