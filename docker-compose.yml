@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: nginx:1.17.6-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx
+      - ./data:/data/www
