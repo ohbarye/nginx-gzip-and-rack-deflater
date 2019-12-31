@@ -13,4 +13,7 @@ class HelloApp < Sinatra::Application
   end
 end
 
+# When enabling Rack::Deflater, compression is done in rack layer, not nginx.
+use Rack::Deflater
+
 run HelloApp
