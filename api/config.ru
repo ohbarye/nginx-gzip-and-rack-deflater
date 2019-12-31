@@ -2,8 +2,13 @@ require "sinatra/base"
 
 class HelloApp < Sinatra::Application
   get "/" do
+    if params[:weak_etag] == 'true'
+      response.headers['Etag'] = 'W/d41d8cd98f00b204e9800998ecf8427e'
+    else
+      response.headers['Etag'] = 'd41d8cd98f00b204e9800998ecf8427e'
+    end
+
     content_type :json
-    response.headers['Etag'] = 'd41d8cd98f00b204e9800998ecf8427e'
     { message: "hello!" }.to_json
   end
 end
