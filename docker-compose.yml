@@ -15,4 +15,4 @@ services:
     volumes:
       - ./api:/api
       - ./api/vendor/bundle:/usr/local/bundle
-    command: bundle exec rackup -o 0.0.0.0
+    command: bash -c "bundle install && bundle exec rackup -o 0.0.0.0"
