@@ -6,7 +6,6 @@ services:
       - "80:80"
     volumes:
       - ./nginx:/etc/nginx
-      - ./data:/data/www
 
   api:
     image: ruby:2.7.0
